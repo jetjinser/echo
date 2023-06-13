@@ -19,12 +19,12 @@ pub async fn run() {
 }
 
 async fn handler(msg: SlackMessage, team: &str, channel: &str) {
-    log::debug!("start callback");
+    log::info!("start callback");
 
     let text = msg.text;
-    log::debug!("received msg: {}", text);
+    log::info!("received msg: {}", text);
 
-    log::debug!("sending msg: {}", text);
+    log::info!("sending msg: {}", text);
     send_message_to_channel(team, channel, text).await;
-    log::debug!("sended msg to {}/{}", team, channel);
+    log::info!("sended msg to {}/{}", team, channel);
 }
