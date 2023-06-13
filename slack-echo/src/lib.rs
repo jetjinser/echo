@@ -19,6 +19,8 @@ pub async fn run() {
 }
 
 async fn handler(msg: SlackMessage, team: &str, channel: &str) {
+    log::debug!("start callback");
+
     let text = msg.text;
     log::debug!("received msg: {}", text);
 
