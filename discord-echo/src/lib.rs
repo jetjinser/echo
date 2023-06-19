@@ -30,15 +30,14 @@ async fn handler(msg: Message, discord: Http) {
         return;
     }
 
-    let content = msg.content;
     let channel_id = msg.channel_id;
 
-    log::debug!("sending message {} to {}", content, channel_id);
+    log::debug!("sending message to {}", channel_id);
     _ = discord
         .send_message(
             channel_id.into(),
             &serde_json::json!({
-                "content": content
+                "content": msg
             }),
         )
         .await;
